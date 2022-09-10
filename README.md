@@ -1,6 +1,6 @@
 # syllabus-api-deno
 
-denoで動くシラバスアプリのapi  
+denoで動くシラバスアプリのAPIサーバ  
 
 ## 利用方法
 
