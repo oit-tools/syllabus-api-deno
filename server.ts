@@ -1,7 +1,7 @@
 import { serve } from "https://deno.land/std@0.154.0/http/server.ts";
 const PORT = 8080;
 
-const handler = async (req) => {
+const handler = async (req: Request) => {
   const url = "https://raw.githubusercontent.com/oit-tools/syllabus-scraping/master/data/2022.json"
   const json = await fetch(url).then((res) => res.json());
   const { pathname } = new URL(req.url);
