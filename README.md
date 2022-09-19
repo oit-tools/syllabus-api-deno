@@ -1,8 +1,8 @@
 # syllabus-api-deno
 
-denoで動くシラバスアプリのAPIサーバ  
+denoで動くシラバスアプリのAPI
 
 ## 利用方法
 
-<https://syllabus-api.deno.dev/講義コード>  
-にGETリクエストを投げる  
+<https://syllabus-api.deno.dev/:numbering>\
+にGETリクエストを投げる
