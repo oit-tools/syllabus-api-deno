@@ -1,19 +1,13 @@
 import { serve } from "https://deno.land/std@0.154.0/http/server.ts";
-import jsonData from "https://raw.githubusercontent.com/oit-tools/syllabus-scraping/master/data/2022.json" assert {
-  type: "json",
-};
-
 const PORT = 8080;
 
-const handler = (req) => {
-  let { pathname } = new URL(req.url);
-  pathname = pathname.replace("/", "");
+const handler = async (req) => {
+  const url = "https://raw.githubusercontent.com/oit-tools/syllabus-scraping/master/data/2022.json"
+  const json = await fetch(url).then((res) => res.json());
+  const { pathname } = new URL(req.url);
 
-  if (req.method === "GET" && pathname != "favicon.ico") {
-    const data = jsonData[pathname];
-
-    // Debug
-    // console.log(pathname, data);
+  if (req.method === "GET" && pathname != "/favicon.ico") {
+    const data = json[pathname.replace("/", "")];
 
     return new Response(JSON.stringify(data), {
       headers: { "Content-Type": "application/json" },
