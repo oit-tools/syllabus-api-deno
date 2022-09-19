@@ -5,10 +5,11 @@ const handler = async (req: Request) => {
   const url =
     "https://raw.githubusercontent.com/oit-tools/syllabus-scraping/master/data/2022.json";
   const json = await fetch(url).then((res) => res.json());
-  const { pathname } = new URL(req.url);
+  let { pathname } = new URL(req.url);
+  pathname = pathname.replace("/", "").toUpperCase();
 
-  if (req.method === "GET" && pathname != "/favicon.ico") {
-    const data = json[pathname.replace("/", "")];
+  if (req.method === "GET" && pathname != "favicon.ico") {
+    const data = json[pathname];
     return new Response(JSON.stringify(data), {
       headers: { "Content-Type": "application/json" },
     });
