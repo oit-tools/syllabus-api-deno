@@ -3,7 +3,7 @@ const PORT = 8080;
 
 const handler = async (req: Request) => {
   const url =
-    "https://raw.githubusercontent.com/oit-tools/syllabus-scraping/master/data/2022.json";
+    "https://raw.githubusercontent.com/oit-tools/syllabus-scraping/master/data/2023.json";
   const json = await fetch(url).then((res) => res.json());
   let { pathname } = new URL(req.url);
   pathname = pathname.replace("/", "").toUpperCase();
